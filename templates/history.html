@@ -1,0 +1,42 @@
+{% extends "layout.html" %} <!-- add redirect button -->
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <form action="/history" method="get">
+        <div class="form-group">
+            <p>
+                <table class="designed_table">
+                    <div>
+                        <tr>
+                            <td class="designed_table_td"><b>Stock</b></td>
+                            <td class="designed_table_td"><b>Price</b></td>
+                            <td class="designed_table_td"><b>Shares</b></td>
+                            <td class="designed_table_td"><b>Total Value</b></td>
+                            <td class="designed_table_td"><b>Date & Time</b></td>
+                        </tr>
+                    </div>
+                    {% for data in user_data %}
+                        <tr>
+                            <td class="designed_table_td">{{ data.symbol }}</td>
+                            <td class="designed_table_td">{{ data.price }}</td>
+
+                            {% if data.shares > 0 %}
+                                <td class="designed_table_td" style="color:green">{{ data.shares }}</td>
+                            {% elif data.shares < 0 %}
+                                <td class="designed_table_td" style="color:red">{{ data.shares }}</td>
+                            {% else %}
+                                <td class="designed_table_td" style="color:black">{{ data.shares }}</td>
+                            {% endif %}
+
+                            <td class="designed_table_td">{{ data.difference }}</td>
+                            <td class="designed_table_td">{{ data.timestamp }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </p>
+        </div>
+    </form>
+{% endblock %}

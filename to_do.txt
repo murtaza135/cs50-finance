@@ -1,0 +1,27 @@
+To do:
+
+1) for the stock symbol search, try to make a .json file with a list json objects
+    - temp_symbol = {'symbol': symbol['symbol']}
+    - json.dump(temp_symbol, outputFile, separators=(',', '\n'))
+    - symbols = json.load(symbols_file)
+    - this code could be used?
+2) for the stock symbol search, add the capability to search for company name as well
+3) on quote and buy, add the ability to post the form directly after clicking a symbol
+    - it would require a $.post() on ajax.js, line 98: a[i].href = "#" + data[i].symbol.toUpperCase();
+4) sort out the code on ajax.js, line 62: function symbol_search_filter
+5) for sell, when a symbol is selected, display its details that are on index, so that the user actually knows how many shares, etc, he has without going back to index
+6) add sell all option and sell bulk option
+7) find a way to disable all buttons on index when one is clicked
+8) add a forgot password option
+9) add a change username option
+10) replace the POST submits with GET submits where there is no problem for the words to appear in the web url, and figure out how to make the server work with things like "q=" + {search_query}
+    - for GET requests: query = request.args.get("q"), and write in the URL: /?q={query}
+11) on index, on the table, make one line white, the other grey, in an alternating fashion to make it obvious which line is which
+12) checkout bootstrap:
+    - for any design and display features
+    - specifically check out flash messages
+13) implementation from finance 2019:
+    - change the username available ajax query to return "True/False" and then javascript can form the message, as oposed to the server directly sending the message
+    - enhance your template for register with some JavaScript in such a way that it prevents submission of your registration form if the inputted username is already taken, letting the user know, as via alert or via a Bootstrap alert or validation.
+        + Use Ajax (e.g., jQuery’s $.get method) to query /check to check whether the inputted username is available.
+        + Recall that you can prevent submission of a form with preventDefault, and you can programmatically induce submission of a form (once validated by you) with submit.

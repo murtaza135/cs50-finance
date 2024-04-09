@@ -1,0 +1,16 @@
+Colours for flash messages:
+    Danger:
+      - text: #D8000C
+      - background: #FFD2D2
+
+    Success:
+      - text: #4F8A10
+      - background: #DFF2BF
+
+    Warning:
+      - text: #9F6000
+      - background: #FEEFB3
+
+    Info:
+      - text: #00529B
+      - background: #BDE5F8

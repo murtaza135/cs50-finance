@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div id="index_load" class="form-group">
+        <p>
+            <table class="designed_table">
+                <div>
+                    <tr>
+                        <td class="designed_table_td"><b>Symbol</b></td>
+                        <td class="designed_table_td"><b>Name</b></td>
+                        <td class="designed_table_td"><b>Price</b></td>
+                        <td class="designed_table_td"><b>Number of Shares</b></td>
+                        <td class="designed_table_td"><b>Buy/Sell Shares</b></td>
+                        <td class="designed_table_td"><b>TOTAL</b></td>
+                    </tr>
+                </div>
+                <div>
+                    {% if data_available == True %}
+                        {% for data in user_data %}
+                            <tr class="index_row">
+                                <td class="designed_table_td">{{ data.symbol }}</td>
+                                <td class="designed_table_td">{{ data.name }}</td>
+                                <td class="designed_table_td">{{ data.price }}</td>
+                                <td class="designed_table_td">{{ data.shares }}</td>
+
+                                <td class="designed_table_td">
+                                    <form action="/index" method="post">
+                                        <input name="shares" autocomplete="off" placeholder="Shares" type="number"/> <br>
+                                        <button class="btn btn-primary index-button submit-button" type="submit" formaction="/buy_stock/{{ data.symbol }}">Buy</button>
+                                        <button class="btn btn-primary index-button submit-button" type="submit" formaction="/sell_stock/{{ data.symbol }}">Sell</button>
+                                    </form>
+                                </td>
+
+                                <td class="designed_table_td">{{ data.stock_value }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div>
+                    <tr>
+                        <td class="designed_table_td">CASH</td>
+                        <td class="designed_table_td"> </td>
+                        <td class="designed_table_td"> </td>
+                        <td class="designed_table_td"> </td>
+                        <td class="designed_table_td"> </td>
+                        <td class="designed_table_td">{{ total_cash }}</td>
+                    </tr>
+                    <tr>
+                        <td class="designed_table_td"> </td>
+                        <td class="designed_table_td"> </td>
+                        <td class="designed_table_td"> </td>
+                        <td class="designed_table_td"> </td>
+                        <td class="designed_table_td"> </td>
+                        <td class="designed_table_td"><b>{{ grand_total }}</b></td>
+                    </tr>
+                </div>
+            </table>
+        </p>
+    </div>
+{% endblock %}

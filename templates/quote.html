@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <form id="quote_form" action="/quote" method="post">
+        <div class="form-group">
+            Enter stock symbol
+            <div class="dropdown-content">
+                <input autocomplete="off" autofocus class="form-control search_box" name="symbol" placeholder="Search Symbol" type="text"/>
+
+                <a class="search_option" href="#"></a>
+                <a class="search_option" href="#"></a>
+                <a class="search_option" href="#"></a>
+                <a class="search_option" href="#"></a>
+                <a class="search_option" href="#"></a>
+                <a class="search_option" href="#"></a>
+                <a class="search_option" href="#"></a>
+                <a class="search_option" href="#"></a>
+                <a class="search_option" href="#"></a>
+                <a class="search_option" href="#"></a>
+            </div>
+        </div>
+        <button class="btn btn-primary submit-button" type="submit">Get Quote</button>
+    </form>
+{% endblock %}

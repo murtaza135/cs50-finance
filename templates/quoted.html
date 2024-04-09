@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <form action="/quoted" method="get">
+        <div class="page-text">
+            <p>
+                The value of {{ name }} ({{ symbol }}) is {{ price }}
+            </p>
+        </div>
+
+        <button id="quote_button_one" class="btn btn-primary" type="button"/>Return to Quote</button>
+        <button id="quote_button_two" class="btn btn-primary" type="button"/>Return to Main Menu</button>
+    </form>
+{% endblock %}
